@@ -362,3 +362,5 @@ function getUserMediaWithConstraints(um, resolution, bandwidth, fps) {
         $(document).trigger('mediafailure.jingle');
     }
 }
+
+module.exports = TraceablePeerConnection;

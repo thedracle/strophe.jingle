@@ -1,0 +1,12 @@
+{
+  "main": "strophe.jingle.js",
+  "name": "strophe.jingle",
+  "version": "0.0.1.0",
+  "description":
+    "Strophe Jingle Plugin",
+  "maintainers": ["Jason Thomas <jthomas@hirevue.com>"],
+  "license": "MIT",
+  "dependencies": {
+    "strophe.js": "*"
+  }
+}

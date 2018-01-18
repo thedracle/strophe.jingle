@@ -1,3 +1,7 @@
+var Strophe = require('strophe.js').Strophe;
+var JingleSession = require('./strophe.jingle.session.js');
+var TraceablePeerConnection = require('./strophe.jingle.adapter.js');
+
 /* jshint -W117 */
 Strophe.addConnectionPlugin('jingle', {
     connection: null,
@@ -250,3 +254,5 @@ Strophe.addConnectionPlugin('jingle', {
         // implement push?
     }
 });
+
+module.exports = {JingleSession: JingleSession, TraceablePeerConnection: TraceablePeerConnection};

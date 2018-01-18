@@ -780,3 +780,5 @@ SDPUtil = {
         return parts.join(' ') + '\r\n';
     }
 };
+
+module.exports = SDP;

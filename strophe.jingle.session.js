@@ -1,3 +1,5 @@
+var SDP = require('./strophe.jingle.sdp.js');
+
 /* jshint -W117 */
 // Jingle stuff
 function JingleSession(me, sid, connection) {
@@ -909,3 +911,4 @@ JingleSession.prototype.getStats = function (interval) {
     return this.statsinterval;
 };
 
+module.exports = JingleSession;
