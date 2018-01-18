@@ -1,7 +1,7 @@
 {
   "main": "strophe.jingle.js",
   "name": "strophe.jingle",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "files": [
     "strophe.jingle.js",
     "README.md",
@@ -10,6 +10,10 @@
     "strophe.jingle.sdp.js",
     "strophe.jingle.session.js"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thedracle/strophe.jingle.git"
+  },
   "description":
     "Strophe Jingle Plugin",
   "maintainers": ["Jason Thomas <jthomas@hirevue.com>"],
