@@ -698,6 +698,9 @@ JingleSession.prototype.addSource = function (elem) {
         var name = $(content).attr('name');
         var lines = '';
         tmp = $(content).find('>source[xmlns="urn:xmpp:jingle:apps:rtp:ssma:0"]');
+        if(tmp.length === 0) {
+            tmp = $(content).find('source[xmlns="urn:xmpp:jingle:apps:rtp:ssma:0"]');
+        }
         tmp.each(function () {
             var ssrc = $(this).attr('ssrc');
             $(this).find('>parameter').each(function () {

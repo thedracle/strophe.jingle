@@ -136,6 +136,7 @@ Strophe.addConnectionPlugin('jingle', {
                 $(document).trigger('unmute.jingle', [sess.sid, affected]);
             }
             break;
+	case 'source-add':
         case 'addsource': // FIXME: proprietary
             sess.addSource($(iq).find('>jingle>content'));
             break;
