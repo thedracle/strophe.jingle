@@ -140,6 +140,7 @@ Strophe.addConnectionPlugin('jingle', {
         case 'addsource': // FIXME: proprietary
             sess.addSource($(iq).find('>jingle>content'));
             break;
+        case 'source-remove':
         case 'removesource': // FIXME: proprietary
             sess.removeSource($(iq).find('>jingle>content'));
             break;
