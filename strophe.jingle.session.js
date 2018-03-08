@@ -709,6 +709,12 @@ JingleSession.prototype.addSource = function (elem) {
                     lines += ':' + $(this).attr('value');
                 lines += '\r\n';
             });
+            $(this).find('>ssrc-info[xmlns="http://jitsi.org/jitmeet"]').each(function(i3, ssrcInfoElement) {
+                var owner = ssrcInfoElement.getAttribute("owner");
+                if(owner && owner.length) {
+                      $(document).trigger('jitsi.owner', {ssrc: ssrc, owner: owner});
+                }
+            });
         });
         sdp.media.forEach(function(media, idx) {
             if (!SDPUtil.find_line(media, 'a=mid:' + name))
