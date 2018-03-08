@@ -696,6 +696,7 @@ JingleSession.prototype.addSource = function (elem) {
     var self = this;
     $(elem).each(function (idx, content) {
         var name = $(content).attr('name');
+        console.log('SSRC NAME', name);
         var lines = '';
         tmp = $(content).find('>source[xmlns="urn:xmpp:jingle:apps:rtp:ssma:0"]');
         if(tmp.length === 0) {
@@ -703,7 +704,14 @@ JingleSession.prototype.addSource = function (elem) {
         }
         tmp.each(function () {
             var ssrc = $(this).attr('ssrc');
+            var msidToSsrc = {}
             $(this).find('>parameter').each(function () {
+                if($(this).attr('name') === 'msid') {
+                    var msidValue = $(this).attr('value');
+                    if(msidValue && msidValue.length > 0) {
+                        msidToSsrc[ssrc] = msidValue.split(' ')[0];
+                    }
+                }
                 lines += 'a=ssrc:' + ssrc + ' ' + $(this).attr('name');
                 if ($(this).attr('value') && $(this).attr('value').length)
                     lines += ':' + $(this).attr('value');
@@ -712,7 +720,7 @@ JingleSession.prototype.addSource = function (elem) {
             $(this).find('>ssrc-info[xmlns="http://jitsi.org/jitmeet"]').each(function(i3, ssrcInfoElement) {
                 var owner = ssrcInfoElement.getAttribute("owner");
                 if(owner && owner.length) {
-                      $(document).trigger('jitsi.owner', {ssrc: ssrc, owner: owner});
+                      $(document).trigger('jitsi.owner', {ssrc: ssrc, msid: msidToSsrc[ssrc], owner: owner});
                 }
             });
         });
